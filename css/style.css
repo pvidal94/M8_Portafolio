@@ -1,0 +1,397 @@
+/* RESET BÁSICO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* VARIABLES Y ESTILOS GLOBALES */
+:root {
+    --color-bg-dark: #1a1a2e; /* Fondo principal oscuro */
+    --color-primary: #e94560; /* Color primario (rosa/rojo oscuro) */
+    --color-secondary: #0f3460; /* Color secundario (azul oscuro) */
+    --color-text-light: #f4f4f4; /* Texto principal claro */
+    --color-text-faded: #b3b3c9; /* Texto secundario */
+    --gradient-hero: linear-gradient(135deg, #1a1a2e 0%, #0f0f1c 100%); 
+}
+
+body {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    font-weight: 600;
+}
+
+/* --- 1. BARRA DE NAVEGACIÓN --- */
+header {
+    background: var(--color-bg-dark);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: var(--color-primary);
+}
+
+
+/* --- 2. HERO SECTION --- */
+.hero-section {
+    position: relative;
+    background: var(--gradient-hero);
+    padding: 80px 0 100px;
+}
+
+.abstract-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Simula el patrón de fondo de la imagen de Estefany */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%232c2c4d" fill-opacity="1" d="M0,64L48,80C96,96,192,128,288,160C384,192,480,224,576,218.7C672,213,768,171,864,138.7C960,107,1056,85,1152,101.3C1248,117,1344,171,1392,197.3L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>') no-repeat center bottom;
+    opacity: 0.1;
+    z-index: 1;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+.text-content {
+    flex: 1;
+    max-width: 60%;
+}
+
+.text-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.text-content .subtitle {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    margin-bottom: 5px;
+}
+
+.text-content .email-contact {
+    color: var(--color-text-faded);
+    margin-bottom: 30px;
+}
+
+.image-content {
+    flex: 0 0 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid var(--color-primary); /* Borde de color */
+    box-shadow: 0 0 20px rgba(233, 69, 96, 0.4); /* Sombra brillante */
+}
+
+.image-content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buttons .btn {
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-right: 15px;
+    display: inline-block;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg-dark);
+    border: 2px solid var(--color-primary);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+
+/* --- 3. SOBRE MÍ & HABILIDADES --- */
+.about-skills-section {
+    padding: 80px 0;
+    background-color: #21213e; /* Ligeramente más claro que el fondo principal */
+}
+
+.about-skills-section .container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.about-content {
+    flex: 1.5;
+}
+
+.skills-content {
+    flex: 1;
+}
+
+.about-content h2, .skills-content h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: var(--color-primary);
+}
+
+.bio-text {
+    margin-bottom: 15px;
+    color: var(--color-text-faded);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.skill-item {
+    background-color: var(--color-secondary);
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    background-color: #1a477d;
+}
+
+.skill-item i {
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 10px;
+}
+
+.skill-item p {
+    font-weight: 600;
+}
+
+/* --- 4. PROYECTOS --- */
+.projects-section {
+    padding: 80px 0;
+    background-color: var(--color-bg-dark);
+}
+
+.projects-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--color-primary);
+}
+
+.projects-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.project-card {
+    background-color: #2c2c4d; /* Fondo de tarjeta */
+    border-radius: 10px;
+    overflow: hidden;
+    width: 350px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.project-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 3px solid var(--color-primary);
+}
+
+.project-info {
+    padding: 20px;
+}
+
+.project-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--color-text-light);
+}
+
+.project-info p {
+    color: var(--color-text-faded);
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.project-link, .btn-github {
+    display: inline-block;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-right: 10px;
+}
+
+.project-link {
+    background-color: var(--color-primary);
+    color: var(--color-bg-dark);
+}
+
+.btn-github {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+}
+
+
+/* --- 5. CONTACTO & FOOTER --- */
+.contact-section {
+    padding: 60px 0 30px;
+    text-align: center;
+    background-color: #21213e; 
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--color-primary);
+}
+
+.contact-links {
+    margin-bottom: 40px;
+}
+
+.contact-icon {
+    font-size: 3rem;
+    color: var(--color-text-faded);
+    margin: 0 20px;
+    transition: color 0.3s, transform 0.2s;
+    text-decoration: none;
+}
+
+.contact-icon:hover {
+    color: var(--color-primary);
+    transform: scale(1.1);
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: var(--color-text-faded);
+    margin-top: 20px;
+}
+
+
+/* --- RESPONSIVE DESIGN (Móviles y Tablets) --- */
+@media (max-width: 992px) {
+    /* Ajustes generales */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    .text-content {
+        max-width: 100%;
+        order: 2;
+    }
+    .image-content {
+        order: 1;
+        margin-bottom: 30px;
+    }
+
+    /* Sobre Mí */
+    .about-skills-section .container {
+        flex-direction: column;
+    }
+
+    /* Proyectos */
+    .projects-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    .project-card {
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Navbar */
+    nav ul {
+        display: none; /* O puedes crear un menú hamburguesa */
+    }
+    .logo {
+        width: 100%;
+        text-align: center;
+    }
+    
+    /* Hero */
+    .text-content h1 {
+        font-size: 2.5rem;
+    }
+    .image-content {
+        width: 250px;
+        height: 250px;
+    }
+    
+    /* Contacto */
+    .contact-icon {
+        font-size: 2rem;
+        margin: 0 10px;
+    }
+}
